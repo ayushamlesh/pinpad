@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Application</title>
+<style>
+  /* CSS for layout and styling */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  .menu {
+    display: flex;
+    flex-wrap: wrap; /* Allow menu items to wrap on smaller screens */
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  .menu-item {
+    width: 100%; /* Each menu item occupies full width on small screens */
+    max-width: 200px; /* Limit maximum width for better readability */
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px; /* Add some space between menu items */
+    cursor: pointer;
+    text-align: center;
+  }
+  .content-display {
+    padding: 20px;
+  }
+  .hidden {
+    display: none;
+  }
+  /* Media query for smaller screens */
+  @media screen and (min-width: 768px) {
+    .menu-item {
+      width: 48%; /* Two menu items per row on medium screens */
+    }
+  }
+  /* Media query for larger screens */
+  @media screen and (min-width: 992px) {
+    .menu-item {
+      width: 30%; /* Three menu items per row on large screens */
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>PINPAD TROUBLESHOOTING GUIDE</h1>
+</header>
+
+<div class="menu">
+  <div class="menu-item" onclick="showContent('content-1')">unable to connect</div>
+  <div class="menu-item" onclick="showContent('content-2')">BootLoop and Beeping</div>
+  <div class="menu-item" onclick="showContent('content-3')">pinpad cable replacement video</div>
+  <div class="menu-item" onclick="showContent('content-4')">Troubleshooting Menu 3</div>
+  <div class="menu-item" onclick="showContent('content-6')">Troubleshooting Menu 4</div>
+</div>
+
+<div class="content-display hidden" id="content-1">
+  <!-- Content for Troubleshooting Menu 1 -->
+  <h2>unable to connect</h2>
+  <ol>
+    <li>If there is an error "unable to connect": 
+      <ul>
+        <li>Disconnect the power cable from the PIN pad.</li>
+        <li>Observe if the PIN pad loses power.</li>
+        <li>If yes, proceed to step 2.</li>
+      </ul>
+    </li>
+    <li>Replace Internet Cable:
+      <ul>
+        <li>Replace the internet cable connected to the PIN pad.</li>
+        <li>Check if the issue persists.</li>
+        <li>If the problem continues, raise a ticket</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<div class="content-display hidden" id="content-2">
+  <!-- Content for Troubleshooting Menu 2 -->
+  <h2>BootLoop and Beeping</h2>
+  <ol>
+    <li>Disconnect all the cables at the combox of the pinpad in the below order:
+      <ol type="a">
+        <li>Power Supply</li>
+        <li>Cat6 Patch to Switch Port</li>
+        <li>USB Connector (Comm box to POS)</li>
+        <li>Payment Terminal Connection (HDMI Cord)</li>
+      </ol>
+    </li>
+    <li>Reconnect all the cables at the combox of the pinpad in the below order:
+      <ol type="a">
+        <li>Power Supply</li>
+        <li>Cat6 Patch to Switch Port</li>
+        <li>USB Connector (Comm box to POS)</li>
+        <li>Payment Terminal Connection (HDMI Cord)</li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<div class="content-display hidden" id="content-3">
+  <!-- Content for Video Tutorial 1 -->
+  <h2>pinpad cable replacement video</h2>
+  <iframe src="https://player.vimeo.com/video/875214971?share=copy" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+
+<div class="content-display hidden" id="content-4">
+  <!-- Content for Troubleshooting Menu 3 -->
+  <h2>Troubleshooting Menu 3</h2>
+  <p>Step-by-step troubleshooting instructions go here...</p>
+</div>
+
+
+<div class="content-display hidden" id="content-6">
+  <!-- Content for Troubleshooting Menu 4 -->
+  <h2>Troubleshooting Menu 4</h2>
+  <p>Step-by-step troubleshooting instructions go here...</p>
+</div>
+
+<!-- Image under the menu -->
+<div class="homepage-image">
+  <img src="path_to_your_image.jpg" alt="Homepage Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+</div>
+
+<script>
+  // JavaScript function to show/hide content based on menu click
+  function showContent(contentId) {
+    // Hide all content displays
+    var contentDisplays = document.querySelectorAll('.content-display');
+    contentDisplays.forEach(function(content) {
+      content.classList.add('hidden');
+    });
+    // Hide the homepage image
+    document.querySelector('.homepage-image').style.display = 'none';
+    // Show the selected content
+    var selectedContent = document.getElementById(contentId);
+    selectedContent.classList.remove('hidden');
+  }
+</script>
+</body>
+</html>
